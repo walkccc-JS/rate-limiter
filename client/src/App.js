@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Link } from 'react-router-dom';
 import './App.css';
+import Timer from './Timer';
 
 class App extends Component {
   state = { ip: null, remaining: null, reset: null, err: null, success: false };
@@ -66,10 +67,7 @@ class App extends Component {
                     <em>{this.state.remaining}</em>
                   </span>{' '}
                   connections in{' '}
-                  <span className="has-text-danger">
-                    {this.state.reset / 1000}
-                  </span>{' '}
-                  seconds.
+                  <Timer seconds={Math.round(this.state.reset / 1000)} />
                 </li>
               ) : null}
             </ul>

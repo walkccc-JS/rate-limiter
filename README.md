@@ -12,7 +12,7 @@ If you do not excess the remaining amount, you'll see the message:
 
 > Your IP address: {your_ip_address}
 >
-> Remains {remaining} connections in {reset} seconds.
+> Remains {remaining} connections in {X} mins {Y} secs.
 
 Otherwise (too many requeset),
 
