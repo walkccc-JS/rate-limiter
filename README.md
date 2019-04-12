@@ -10,9 +10,7 @@ You're allowed to `GET /api/rateLimiter` 1000 times per hour.
 
 If you do not excess the remaining amount, you'll see the message:
 
-> Your IP address: {your_ip_address}
->
-> Remains {remaining} connections in {X} mins {Y} secs.
+> Your IP is {your_ip_address} which remains {remaining} connections in {X} mins {Y} secs.
 
 Otherwise (too many requeset),
 

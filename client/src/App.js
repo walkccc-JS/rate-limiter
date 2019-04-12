@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter, Link } from 'react-router-dom';
-import './App.css';
 import Timer from './Timer';
 
 class App extends Component {
@@ -28,7 +27,9 @@ class App extends Component {
       <div className="section" style={{ paddingTop: '3rem' }}>
         <div className="container">
           <div className="title has-text-centered">Rate Limiter</div>
-
+          <div className="subtitle has-text-grey-light has-text-centered is-6">
+            A simple rate-limiter middleware built with React, Node.js & MongoDB
+          </div>
           <aside className="menu">
             <p className="menu-label">Methods</p>
             <ul className="menu-list">
@@ -36,16 +37,24 @@ class App extends Component {
                 <ul>
                   <li>
                     <BrowserRouter>
-                      <Link to="/" onClick={this.onButtonClick}>
+                      <Link
+                        to="/"
+                        className="has-text-link"
+                        onClick={this.onButtonClick}
+                      >
                         GET /api/rateLimiter
                       </Link>
                     </BrowserRouter>
                   </li>
                   <li>
-                    <a href="/api/rateLimiter">View /api/rateLimiter</a>
+                    <a href="/api/rateLimiter" className="has-text-link">
+                      View /api/rateLimiter
+                    </a>
                   </li>
                   <li>
-                    <a href="/api/visitors">View /api/visitors</a>
+                    <a href="/api/visitors" className="has-text-link">
+                      View /api/visitors
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -58,35 +67,32 @@ class App extends Component {
               ) : null}
 
               {this.state.success ? (
-                <li>
-                  Your IP address is <strong>{this.state.ip}</strong>
-                  <br />
-                  <br />
-                  Remains{' '}
-                  <span className="has-text-link">
-                    <em>{this.state.remaining}</em>
-                  </span>{' '}
+                <li className="has-text-grey">
+                  Your IP is{' '}
+                  <span className="has-text-black">{this.state.ip}</span> which
+                  remains{' '}
+                  <strong>
+                    <em className="has-text-primary">{this.state.remaining}</em>
+                  </strong>{' '}
                   connections in{' '}
-                  <Timer seconds={Math.round(this.state.reset / 1000)} />
+                  <Timer seconds={Math.round(this.state.reset / 1000)} />.
                 </li>
               ) : null}
             </ul>
-
-            <p className="menu-label">Source</p>
-            <ul className="menu-list">
-              <li>
-                <ul>
-                  <li>
-                    <a href="https://github.com/walkccc/rate-limiter">
-                      <strong className="has-text-info">
-                        View source on GitHub &copy; Jay Chen
-                      </strong>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
           </aside>
+          <a
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              fontSize: 12,
+              marginTop: '2rem'
+            }}
+            href="https://github.com/walkccc/rate-limiter"
+          >
+            <strong className="has-text-info">
+              View source on GitHub &copy; Jay Chen
+            </strong>
+          </a>
         </div>
       </div>
     );

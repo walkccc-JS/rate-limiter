@@ -30,7 +30,7 @@ class Timer extends Component {
 
   render() {
     return (
-      <em>
+      <em className="has-text-black">
         {this.state.timeObj.m} mins {this.state.timeObj.s} secs
       </em>
     );
